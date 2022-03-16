@@ -1,3 +1,10 @@
+/**
+ * Esta es la clase principal del programa.
+ * Contiene al metodo main
+ * Universidad del Valle de Guatemala
+ * @author: Jimena Hernandez
+ * @version: 18-mar-22
+ */
 public class Controlador {
 /**
 * Main del programa.
