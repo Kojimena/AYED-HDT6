@@ -22,7 +22,7 @@ public class Vista {
     * @return La opción elegida por el usuario
     */
     public int menu(){
-                mensaje("\n" +"¿Qué implementacion MAP desea utilizar?");
+                mensaje("\n" +"Que implementacion MAP desea utilizar?\n");
                 System.out.println("1. HashMap");
                 System.out.println("2. TreeMap ");
                 System.out.println("3. LinkedHashMap");
@@ -33,7 +33,7 @@ public class Vista {
                 opcion = scan.nextInt();
             
             } catch (InputMismatchException e) {
-                mensaje("Porfavor, ingrese una opción válida");
+                mensaje("Porfavor, ingrese una opcion valida");
                 opcion = scan.nextInt();
             
             }
