@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException; 
 
 public class Vista {
-    //propiedades private a usar
+//propiedades private a usar
    private Scanner scan = new Scanner(System.in);
    private  int opcion;
 
