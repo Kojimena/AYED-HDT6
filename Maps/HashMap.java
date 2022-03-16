@@ -1,5 +1,5 @@
 package Maps;
 
-public class HashMap {
+public class HashMap extends Map {
     
 }

@@ -1,5 +1,5 @@
 package Maps;
 
-public class LinkedHashMap {
+public class LinkedHashMap extends Map {
     
 }
