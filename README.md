@@ -1,2 +1,7 @@
-# AYED-HT-6
- Operaciones con mapas
+# Algoritmos y Estructuras de Datos
+## HDT6
+****
+### Creador: Jimena Hernández
+
+## Índice
+1.[Main]
