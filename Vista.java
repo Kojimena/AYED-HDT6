@@ -5,9 +5,8 @@ import java.util.InputMismatchException;
 
 public class Vista {
 //propiedades private a usar
-   private Scanner scan = new Scanner(System.in);
-   private  int opcion;
-
+private Scanner scan = new Scanner(System.in);
+private  int opcion;
 
     /**
     * 
@@ -22,24 +21,46 @@ public class Vista {
     * @return La opción elegida por el usuario
     */
     public int menu(){
-                mensaje("\n" +"Que implementacion MAP desea utilizar?\n");
-                System.out.println("1. HashMap");
-                System.out.println("2. TreeMap ");
-                System.out.println("3. LinkedHashMap");
-                System.out.println("4. Salir del programa");
+        mensaje("\n" +"Que implementacion MAP desea utilizar?\n");
+        mensaje("1. HashMap");
+        mensaje("2. TreeMap ");
+        mensaje("3. LinkedHashMap");
+        mensaje("4. Salir del programa");
 
-                System.out.print("Seleccion: ");
-            try {
-                opcion = scan.nextInt();
+        mensaje("Seleccion: ");
+        try {
+            opcion = scan.nextInt();
             
-            } catch (InputMismatchException e) {
-                mensaje("Porfavor, ingrese una opcion valida");
-                opcion = scan.nextInt();
-            
-            }
-        
+        } catch (InputMismatchException e) {
+            mensaje("Porfavor, ingrese una opcion valida");
+            opcion = scan.nextInt();
+        }
 		scan.nextLine();
 		return opcion;
     }
 
+    /**
+    * Despliega el menú de opciones para el usuario. Luego, recibe la opción elegida por el usuario y la devuelve.
+    * @return La opción elegida por el usuario
+    */
+    public int menueleccion(){
+        mensaje("\n" +"Que desea realizar?");
+        mensaje("1. Agregar  un  producto a  la coleccion");
+        mensaje("2. Mostrar la categoria del producto ");
+        mensaje("3. Mostrar datos del producto (producto,  categoria  y  la  cantidad  de  cada  articulo)");
+        mensaje("4. Mostrar datos del producto ordenados por tipo");
+        mensaje("5. Mostrar el producto y la categoria de todo el inventario");
+        mensaje("6. Mostrar el producto y la categoria existentes, ordenadas por tipo");
+
+        mensaje("Seleccion: ");
+        try {
+            opcion = scan.nextInt();
+    
+        } catch (InputMismatchException e) {
+            mensaje("Porfavor, ingrese una opcion valida");
+            opcion = scan.nextInt();
+        }
+    scan.nextLine();
+    return opcion;
+    }
 }

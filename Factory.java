@@ -1,18 +1,20 @@
 import Maps.*;
 
-public class Factory {
+public class Factory<K,V> {
         /**
      * @param option El tipo de estructura de datos a utilizar con los maps
      * @return La opcion elegida.
      */
-    public static Map getMap(int option) {
+    public Map getMap(int option) {
         switch (option) {
             case 1:
-            break;
+            return new HashMap<K,V>();
+
             case 2:
-            break;
+            return new TreeMap<K, V>();
+
             case 3:
-            break;
+            return new LinkedHashMap<K, V>();
         }
         return null;
     }

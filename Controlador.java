@@ -23,10 +23,13 @@ public static void main(String[] args) {
         switch(opcion)
         {
             case 1: //HashMap
+            vista.menueleccion();
             break;
             case 2: //TreeMap
+            vista.menueleccion();
             break;
             case 3: //LinkedHashMap
+            vista.menueleccion();
             break;
             case 4: //salida
             //salida del programa
