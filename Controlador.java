@@ -32,8 +32,8 @@ private static String nombreArchivo = "ListadoProducto.txt";  // NOMBRE DEL ARCH
             Scanner myReader = new Scanner(archivo);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                String[] temp = data.split("|");
-                datos.put(temp[0],temp[1]);
+                String[] temp = data.split(" \\|\t");
+                datos.put(temp[1],temp[0]);
         } myReader.close();
       }catch (Exception e) {
         System.out.println("Archivo no encontrado");
