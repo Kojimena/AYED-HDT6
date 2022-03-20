@@ -5,16 +5,40 @@
  * @author: Jimena Hernandez
  * @version: 18-mar-22
  */
+import java.util.Map;
+import java.util.Scanner;
+import java.io.File;
+import java.util.Arrays;
+
 public class Controlador {
 /**
 * Main del programa.
 **/ 
 private static Vista vista = new Vista();
-public static void main(String[] args) {
-    int opcion;
-    vista.mensaje("\n" +"Bienvenido a la tienda Online");
-    opcion = vista.menu(); //se llama la opción
+private static String nombreArchivo = "ListadoProducto.txt";  // NOMBRE DEL ARCHIVO CON LOS OPERANDOS
+    public static void main(String[] args) {
+        MapFactory factory = new MapFactory();
+        Map datos; 
+        Map collecion;
+    
+        int opcion;
+        vista.mensaje("\n" +"Bienvenido a la tienda Online");
+        opcion = vista.menu(); //se llama la opción
+        datos = factory.getMAP(opcion);
+        collecion = factory.getMAP(opcion);
 
+        try {
+            File archivo = new File("/Users/jime/Desktop/AYED-HT-6/ListadoProducto.txt");
+            Scanner myReader = new Scanner(archivo);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] temp = data.split("|");
+                datos.put(temp[0],temp[1]);
+        } myReader.close();
+      }catch (Exception e) {
+        System.out.println("Archivo no encontrado");
+        e.printStackTrace();
+    }
     /**
     * Ciclo mientras la opcion no sea 4 que es salir, sigue corriendo.
     **/
