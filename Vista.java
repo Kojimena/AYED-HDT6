@@ -51,7 +51,7 @@ private  int opcion;
         mensaje("4. Mostrar datos del producto ordenados por tipo");
         mensaje("5. Mostrar el producto y la categoria de todo el inventario");
         mensaje("6. Mostrar el producto y la categoria existentes, ordenadas por tipo");
-
+        mensaje("7. Salir");
         mensaje("Seleccion: ");
         try {
             opcion = scan.nextInt();
@@ -62,5 +62,19 @@ private  int opcion;
         }
     scan.nextLine();
     return opcion;
+    }
+
+    public String getProducto(){
+
+        mensaje("\nIngrese el producto que desea agregar ");
+
+        return scan.nextLine();
+    }
+
+    public String getCategory(){
+
+        mensaje("\nIngrese el producto del que desea saber la categoría ");
+
+        return scan.nextLine();
     }
 }
