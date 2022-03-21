@@ -5,9 +5,7 @@
  * @author: Jimena Hernandez
  * @version: 18-mar-22
  */
-import java.util.Locale;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.io.File;
 
 public class Controlador {
@@ -48,18 +46,20 @@ private static String nombreArchivo = "ListadoProducto.txt";  // NOMBRE DEL ARCH
         {
             case 1: //Aregar  un  producto a  la coleccion
                 String p_agregado=vista.getProducto();
-                if(datos.containsKey(p_agregado)){
-                    if(!colleccion.containsKey(p_agregado)){
-                        colleccion.put(p_agregado, 1);
+                String categoriap= vista.busquedaCategory();
+                String cap1 = p_agregado.substring(0, 1).toUpperCase() + p_agregado.substring(1);
+                String cap2 = categoriap.substring(0, 1).toUpperCase() + categoriap.substring(1);
+
+                if(datos.containsKey(cap1)&& (datos.containsValue(cap2))){
+                    if(!colleccion.containsKey(cap1)){
+                        colleccion.put(cap1, cap2);
                     }else{
-                        int temporal = (int) colleccion.get(p_agregado);
-                        temporal +=1;
-                        colleccion.replace(p_agregado,colleccion.get(p_agregado),temporal);
+                        colleccion.replace(cap1,cap2);
                     }
 
                     vista.mensaje("Producto agregado con exito!");
                 }else{
-                    vista.mensaje("Producto no disponible");
+                    vista.mensaje("Producto o categoría no disponible en el inventario");
                 }
 
                 break;
@@ -80,10 +80,34 @@ private static String nombreArchivo = "ListadoProducto.txt";  // NOMBRE DEL ARCH
                 }
                 break;
             case 3: //Mostrar datos del producto (producto,  categoria  y  la  cantidad  de  cada  articulo)
+                Object[] values = colleccion.values().toArray();
+                Object[] keys = colleccion.keySet().toArray();
+                System.out.printf( "%-20s %20s %n", "Categoria", "Nombre del producto");
+                for (int i = 0; i <values.length; i++) {
+                    String temp = values[i].toString();
+                    String temp2 = keys[i].toString();
+                    String[] split = temp.split("=");
+                    String[] split2 = temp2.split("=");
+                    System.out.printf("%-20s %20s %n", split[0],split2[0]);
+                }
                 break;
             case 4: //Mostrar datos del producto ordenados por tipo
+                String res = "";
+                if(colleccion.isEmpty()){
+                    res = "Parece que aun no tiene ningun articulo en se colección, intenta agregando uno";
+                }
+                else{
+                    vista.mensaje( "\nNombre del producto="+"Categorias ordenadas por tipo");
+                    List<Map.Entry<String, String>> list = new ArrayList<>(colleccion.entrySet());
+                    list.sort(Map.Entry.comparingByValue());
+                    res= "\nSe han ordenado sus productos por categoría correctamente...";
+                    list.forEach(System.out::println);
+                }
+                vista.mensaje(res);
+
                 break;
             case 5: //Mostrar el producto y la categoria de todo el inventario
+                vista.mensaje("\nProductos y la categorias de todo el inventario\n");
                 System.out.printf( "%-20s %20s %n", "Categoría", "Nombre del Producto");
                 Object[] lista = datos.entrySet().toArray();
                 for (Object o : lista) {
@@ -93,6 +117,11 @@ private static String nombreArchivo = "ListadoProducto.txt";  // NOMBRE DEL ARCH
                 }
                 break;
             case 6:
+                vista.mensaje( "\nNombre del producto="+"Categorias ordenadas por tipo del inventario\n");
+                List<Map.Entry<String, String>> list = new ArrayList<>(datos.entrySet());
+                list.sort(Map.Entry.comparingByValue());
+                res= "\nSe han ordenado los productos del inventario por categoría correctamente...";
+                list.forEach(System.out::println);
                 break;
             case 7:
                 //salida del programa

@@ -47,10 +47,10 @@ private  int opcion;
         mensaje("\n" +"Que desea realizar?");
         mensaje("1. Agregar  un  producto a  la coleccion");
         mensaje("2. Mostrar la categoria del producto ");
-        mensaje("3. Mostrar datos del producto (producto,  categoria  y  la  cantidad  de  cada  articulo)");
-        mensaje("4. Mostrar datos del producto ordenados por tipo");
+        mensaje("3. Mostrar datos del producto en coleccion ");
+        mensaje("4. Mostrar datos del producto ordenados por tipo en coleccion");
         mensaje("5. Mostrar el producto y la categoria de todo el inventario");
-        mensaje("6. Mostrar el producto y la categoria existentes, ordenadas por tipo");
+        mensaje("6. Mostrar el producto y la categoria del inventario, ordenadas por tipo");
         mensaje("7. Salir");
         mensaje("Seleccion: ");
         try {
@@ -74,6 +74,13 @@ private  int opcion;
     public String getCategory(){
 
         mensaje("\nIngrese el producto del que desea saber la categoría ");
+
+        return scan.nextLine();
+    }
+
+    public String busquedaCategory(){
+
+        mensaje("\nIngrese la categoría del producto a agregar a la coleccion ");
 
         return scan.nextLine();
     }
