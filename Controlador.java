@@ -88,8 +88,18 @@ private static String nombreArchivo = "ListadoProducto.txt";  // NOMBRE DEL ARCH
                     String temp2 = keys[i].toString();
                     String[] split = temp.split("=");
                     String[] split2 = temp2.split("=");
-                    System.out.printf("%-20s %20s %n", split[0],split2[0]);
+
+                    System.out.printf("%-20s %20s  %n", split[0],split2[0] );
                 }
+
+                List asList = Arrays.asList(values);
+                Set<String> mySet = new HashSet<String>(asList);
+
+                for(String s: mySet){
+                    vista.mensaje( "\n"+ s + "  Cantidad:" + Collections.frequency(asList,s));
+                }
+
+
                 break;
             case 4: //Mostrar datos del producto ordenados por tipo
                 String res = "";
