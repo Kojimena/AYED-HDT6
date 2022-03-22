@@ -5,7 +5,9 @@
 
 ## Índice
 1.[Main]https://github.com/Kojimena/AYED-HT-6/blob/main/Controlador.java
+
 2.[Análisis de tiempos]https://github.com/Kojimena/AYED-HT-6/tree/main/Tiempos
+
 3.[complejidad  calculada  para HashMap]
 
 ## Complejidad HashMap
